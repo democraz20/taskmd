@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace taskmd
 {
@@ -6,13 +7,35 @@ namespace taskmd
     {
         static void Main(string[] args)
         {
-            foreach (var arg in args)
+            if (args.Length == 0)
             {
-              Console.WriteLine(arg);
+                //prints usage
+                Console.WriteLine("Usage: taskmd <file>");
+                return;
             }
-            Console.Title = "TaskMD";
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            string firstarg = args[0].ToLower();
+            switch (firstarg){
+                case "add":
+                    Console.WriteLine("Add");
+                    break;
+                case "del":
+                    Console.WriteLine("Del");
+                    break;
+                case "tog":
+                    Console.WriteLine("Tog");
+                    break;
+                case "init":
+                    Console.WriteLine("Init");
+                    if (!File.Exists("task.md")){
+                        Console.WriteLine("File \"Task.md\" not found \n Creating new one in current directory.");
+                        File.Create("Task.md");
+                        Console.WriteLine(" File \"Task.md\" created.");
+                    }
+                    else{
+                        Console.WriteLine("File \"Task.md\" already exists.");
+                    }
+                    break;
+            }
         }
     }
 }

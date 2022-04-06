@@ -1,0 +1,12 @@
+            Console.WriteLine("Hello World!");
+            foreach (var arg in args)
+            {
+              Console.WriteLine(arg);
+            }
+            string text = File.ReadAllText("test.txt");  
+            Console.WriteLine("-----------------"+text); 
+            string[] strings = text.Split(Environment.NewLine);
+ 
+            Console.WriteLine(String.Join(',', strings));
+            Console.Title = "TaskMD";
+            Console.ReadKey();
