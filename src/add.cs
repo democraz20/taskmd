@@ -4,9 +4,9 @@ using System.Linq;
 namespace taskmd;
 
 public class add{
-    public static void write(string newText){
+    public static void writeAdd(string newText){
         newText = newText+" [x]";
-        string[] lines = Program.indexFile("Task.md");
+        string[] lines = taskmd.indexFile("Task.md");
         using (StreamWriter writer = new StreamWriter("Task.md"))  
         {  
             foreach (string line in lines)  

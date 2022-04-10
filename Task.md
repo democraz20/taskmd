@@ -1,3 +1,4 @@
 # Task.md file
-first line index 0 [x]
-line index 2 [x]
+message space index 1 [x]
+index 2 [x]
+index 3 add [x]
