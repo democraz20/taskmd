@@ -51,6 +51,9 @@ public class taskmd{
                 break;
         }
     }
+
+
+    //public uses might need do cleanup later
     public static string[] indexFile(string fileName){
         string readFile = File.ReadAllText(fileName, Encoding.UTF8);
         string[] lines = readFile.Split(
@@ -63,10 +66,15 @@ public class taskmd{
         File.WriteAllText("Task.md", string.Empty);
         using (StreamWriter writer = new StreamWriter("Task.md"))  
         {  
-            foreach (string line in lines)  
-            {  
-                writer.Write(line);  
-            }  
+            //writer.WriteLine("# Task.md file");
+            // 0 1 2 3 4
+            // a b c d f
+            //          
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                writer.WriteLine(lines[i]);
+            }
+            writer.Write(lines[lines.Length-1]);
         }
     }
 }

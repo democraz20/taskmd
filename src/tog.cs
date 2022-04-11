@@ -8,8 +8,9 @@ public class tog{
         //char[] arr = lines[index].ToCharArray();
         //arr[arr.Length-2] = '✓';
         string[] arr = lines[index].Split(' ');
-        arr[arr.Length-1] = " [✓]";
-        lines[index] = arr[0];
+        arr[arr.Length-1] = "[✓]";
+        lines[index] = string.Join(" ", arr);
+        Console.WriteLine(arr.ToString());
         taskmd.rewriteAll(lines);
     }
 }
