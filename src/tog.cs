@@ -9,7 +9,7 @@ public class tog{
         //arr[arr.Length-2] = '✓';
         string[] arr = lines[index].Split(' ');
         if (arr[arr.Length-1] == "[✓]"){
-            arr[arr.Length-1] = "[✗]";
+            arr[arr.Length-1] = "[X]";
         }
         else{
             arr[arr.Length-1] = "[✓]";

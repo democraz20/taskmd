@@ -47,6 +47,14 @@ public class taskmd{
                     init.start();
                 }
                 break;
+            case "write":
+                if (args.Length == 1){
+                    write.colors();
+                }
+                else{
+                    write.colors(args[1]);
+                }
+                break;
         }
     }
 

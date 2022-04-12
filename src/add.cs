@@ -5,7 +5,7 @@ namespace taskmd;
 
 public class add{
     public static void writeAdd(string newText, string fileName="Task.md"){
-        newText = newText+" [✗]";
+        newText = newText+" [X]";
         string[] lines = taskmd.indexFile(fileName);
         using (StreamWriter writer = new StreamWriter(fileName))  
         {  
