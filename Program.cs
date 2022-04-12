@@ -14,7 +14,7 @@ class Program
         }
         catch(Exception ex)
         {
-            Console.WriteLine("Error info:" + ex.Message);
+            Console.WriteLine("Error info : " + ex.Message);
         }
     }
 }

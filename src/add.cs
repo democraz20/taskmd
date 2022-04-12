@@ -4,10 +4,10 @@ using System.Linq;
 namespace taskmd;
 
 public class add{
-    public static void writeAdd(string newText){
-        newText = newText+" [x]";
-        string[] lines = taskmd.indexFile("Task.md");
-        using (StreamWriter writer = new StreamWriter("Task.md"))  
+    public static void writeAdd(string newText, string fileName="Task.md"){
+        newText = newText+" [✗]";
+        string[] lines = taskmd.indexFile(fileName);
+        using (StreamWriter writer = new StreamWriter(fileName))  
         {  
             foreach (string line in lines)  
             {  
@@ -15,16 +15,5 @@ public class add{
             }  
             writer.Write(newText);
         }  
-    }
-    public static void printArgs (string[] input){
-        if (input.Length == 0){
-            Console.WriteLine("no args passed in");
-        }
-        else{
-            for (int i = 0; i < input.Length; i++)
-            {   
-                Console.WriteLine($"index {i} all args {input[i]}");
-            }
-        }
     }
 }

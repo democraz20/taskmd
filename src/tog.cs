@@ -3,14 +3,19 @@
 namespace taskmd;
 
 public class tog{
-    public static void toggle(int index){
-        string[] lines = taskmd.indexFile("Task.md");
+    public static void toggle(int index, string fileName="Task.md"){
+        string[] lines = taskmd.indexFile(fileName);
         //char[] arr = lines[index].ToCharArray();
         //arr[arr.Length-2] = '✓';
         string[] arr = lines[index].Split(' ');
-        arr[arr.Length-1] = "[✓]";
+        if (arr[arr.Length-1] == "[✓]"){
+            arr[arr.Length-1] = "[✗]";
+        }
+        else{
+            arr[arr.Length-1] = "[✓]";
+        }
         lines[index] = string.Join(" ", arr);
-        Console.WriteLine(arr.ToString());
-        taskmd.rewriteAll(lines);
+        
+        taskmd.rewriteAll(lines, fileName);
     }
 }
