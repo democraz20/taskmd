@@ -5,7 +5,7 @@ namespace taskmd;
 
 public class add{
     public static void writeAdd(string newText, string fileName="Task.md"){
-        newText = newText+" [X]";
+        newText = newText+" [X]<br/>";
         string[] lines = taskmd.indexFile(fileName);
         using (StreamWriter writer = new StreamWriter(fileName))  
         {  
@@ -15,5 +15,6 @@ public class add{
             }  
             writer.Write(newText);
         }  
+        write.colors(fileName, lines.Length, "add");
     }
 }

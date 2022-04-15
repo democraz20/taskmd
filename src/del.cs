@@ -11,6 +11,7 @@ public class del{
         int indexToRemove = int.Parse(index);
         lines = lines.Where((source, index) =>index != indexToRemove).ToArray();
         //rewrite file
+        write.colors(fileName, indexToRemove, "delete");
         taskmd.rewriteAll(lines, fileName);
     }
 }
