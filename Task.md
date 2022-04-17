@@ -1,4 +1,7 @@
 # Task.md file
-test message [X]<br/>
-test message new [✓]<br/>
-kek [✓]<br/>
+make a good README.md [X]<br/>
+add Usage [✓]<br/>
+compile into single file [✓]<br/>
+better write command [✓]<br/>
+upload compiled file [X]<br/>
+add version [✓]<br/>

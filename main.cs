@@ -5,11 +5,24 @@ namespace taskmd;
 
 public class taskmd{
     public static void core(string[] args){
+        string version = "1.0.0";
         if (args.Length == 0)
         {
             //com [0] [index] [file(optional)]
             //prints usage
-            Console.WriteLine("Usage: taskmd <file>");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(@$"
+            Task.md - version {version}
+            Usage : [filename]
+            Commands : 
+                - init ,       [filename(optional)]
+                - add [task],  [filename(optional)]
+                - del [index], [filename(optional)]
+                - tog [index], [filename(optional)]
+                - write,       [filename(optional)]
+            Default file name for every command is 'Task.md'
+            ");
+            Console.ResetColor();   
             return;
         }
         string firstarg = args[0].ToLower();
