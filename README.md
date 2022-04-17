@@ -1,7 +1,7 @@
 # Task.md 
 Task.md is a CLI todo list manager made with c#<br/>
 preview : <br/>
-![task](images\task.png "preview")
+![task](https://github.com/democraz20/taskmd/blob/main/images/task.PNG "preview")
 
 # Commands
 * init - initialize a new todo list
