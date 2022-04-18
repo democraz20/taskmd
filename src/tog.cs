@@ -17,7 +17,7 @@ public class tog{
             arr = arr.Where((source, index) =>index != 2).ToArray();
         }
         lines[index] = string.Join(" ", arr);
-        write.colors(fileName, index, "toggle");
+        read.colors(fileName, index, "toggle");
         taskmd.rewriteAll(lines, fileName);
     }
 }

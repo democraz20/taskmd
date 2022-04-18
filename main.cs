@@ -19,7 +19,7 @@ public class taskmd{
                 - add [task],  [filename(optional)]
                 - del [index], [filename(optional)]
                 - tog [index], [filename(optional)]
-                - write,       [filename(optional)]
+                - read,       [filename(optional)]
             Default file name for every command is 'Task.md'
             ");
             Console.ResetColor();   

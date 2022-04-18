@@ -2,7 +2,7 @@
 
 namespace taskmd;
 
-public class write{
+public class read{
     public static void colors(string fileName="TASK.md", int? editedLine = null, string? editMode = null){
         string[] lines = taskmd.indexFile(fileName);
         Console.WriteLine("");
