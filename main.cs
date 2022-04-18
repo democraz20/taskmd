@@ -60,12 +60,12 @@ public class taskmd{
                     init.start();
                 }
                 break;
-            case "write":
+            case "read":
                 if (args.Length == 1){
-                    write.colors();
+                    read.colors();
                 }
                 else{
-                    write.colors(args[1]);
+                    read.colors(args[1]);
                 }
                 break;
         }
