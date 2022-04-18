@@ -9,7 +9,7 @@ preview : <br/>
 * add - adds a task
 * del - delete a task
 * tog - toggle a task
-* write - writes list to current terminal
+* read - reads the file and write to the current terminal
 
 # Version
 1.1.0
