@@ -3,7 +3,7 @@
 namespace taskmd;
 
 public class tog{
-    public static void toggle(int index, string fileName="Task.md"){
+    public static void toggle(int index, string fileName="TASK.md"){
         string[] lines = taskmd.indexFile(fileName);
         //char[] arr = lines[index].ToCharArray();
         //arr[arr.Length-2] = '✓';

@@ -3,7 +3,7 @@
 namespace taskmd;
 
 public class init{
-    public static void start(string fileName="Task.md"){
+    public static void start(string fileName="TASK.md"){
         if (!File.Exists(fileName)){
              Console.WriteLine($"File \"{fileName}\" not found \n Creating new one in current directory.");
             using (FileStream fs = File.Create(fileName))

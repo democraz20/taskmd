@@ -3,7 +3,7 @@ using System.Text;
 namespace taskmd;
 
 public class del{
-    public static void remove(string index, string fileName="Task.md"){
+    public static void remove(string index, string fileName="TASK.md"){
         string[] lines = taskmd.indexFile(fileName);
         //remove item in array
         //int indexToRemove = index;
