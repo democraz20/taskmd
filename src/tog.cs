@@ -8,11 +8,13 @@ public class tog{
         //char[] arr = lines[index].ToCharArray();
         //arr[arr.Length-2] = '✓';
         string[] arr = lines[index].Split(' ');
-        if (arr[arr.Length-1] == "[✓]<br/>"){
-            arr[arr.Length-1] = "[X]<br/>";
+        if (arr[1] == "[X]"){
+            arr[1] = "[ ]";
         }
         else{
-            arr[arr.Length-1] = "[✓]<br/>";
+            arr[1] = "[X]";
+            arr[2] = "";
+            arr = arr.Where((source, index) =>index != 2).ToArray();
         }
         lines[index] = string.Join(" ", arr);
         write.colors(fileName, index, "toggle");

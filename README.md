@@ -11,7 +11,8 @@ preview : <br/>
 * write - writes list to current terminal
 
 # Version
-1.0.0
+1.1.0
 
 # upcoming 
-1.0.0 download link
+adding a heading to the file
+download link
