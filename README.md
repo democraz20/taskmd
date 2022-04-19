@@ -6,15 +6,16 @@ also preview : <br/>
 ![task2](https://github.com/democraz20/taskmd/blob/main/images/task2.PNG "preview")
 
 # Commands
-* init - initialize a new todo list
-* add - adds a task
-* del - delete a task
-* tog - toggle a task
-* read - reads the file and write to the current terminal
+* `init` - initialize a new todo list
+* `add` - adds a task
+* `del` - delete a task
+* `tog` - toggle a task
+* `read` - reads the file and write to the current terminal
 
 # Version
-1.1.1
+__1.1.1__
 
-# upcoming 
+## upcoming 
 adding a heading to the file <br/>
-download link 
+download link <br/>
+code comments (once stable build is made)<br/>
