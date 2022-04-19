@@ -1,4 +1,6 @@
 # TASK.md file
-- [X] message space
-- [ ] message space but second
-- [ ] third message space
+- [ ] compile new version
+- [ ] upload new version
+- [X] do pushups
+- [X] make better read command
+- [X] update README.md

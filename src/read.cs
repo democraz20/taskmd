@@ -18,30 +18,29 @@ public class read{
                 for (int j = 0; j < splitted.Length-1; j++)
                 {
                     lsplit = splitted[splitted.Length-1];
-                    char[] check = lsplit.ToCharArray();
-                    if (check[1] == '✓'){
-                        for (int x = 0; x < splitted.Length-1; x++)
-                        {
-                            Console.Write(splitted[x] + " ");
-                        }
-                        Console.Write("[");
+                    if (splitted[1] == "[X]"){
+                        Console.Write($"{i}. [");
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("✓");
                         Console.ResetColor();
-                        Console.Write("]");
+                        Console.Write("] ");
+                        for (int x = 2; x < splitted.Length; x++)
+                        {
+                            Console.Write(splitted[x] + " ");
+                        }
                         writeDetails(i, editedLine, editMode);
                         break;
                     }
                     else {
-                        for (int x = 0; x < splitted.Length-1; x++)
-                        {
-                            Console.Write(splitted[x] + " ");
-                        }
-                        Console.Write("[");
+                        Console.Write($"{i}. [");
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("X");
                         Console.ResetColor();
-                        Console.Write("]");
+                        Console.Write("] ");
+                        for (int x = 3; x < splitted.Length; x++)
+                        {
+                            Console.Write(splitted[x] + " ");
+                        }
                         writeDetails(i, editedLine, editMode);
                         break;
                     }
