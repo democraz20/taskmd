@@ -5,7 +5,7 @@ namespace taskmd;
 
 public class taskmd{
     public static void core(string[] args){
-        string version = "1.1.1";
+        string version = "1.2.0";
         if (args.Length == 0)
         {
             //com [0] [index] [file(optional)]

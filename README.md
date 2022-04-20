@@ -13,9 +13,8 @@ also preview : <br/>
 * `read` - reads the file and write to the current terminal
 
 # Version
-__1.1.1__
+__1.2.0__
 
 ## upcoming 
-adding a heading to the file <br/>
 download link <br/>
 code comments (once stable build is made)<br/>
