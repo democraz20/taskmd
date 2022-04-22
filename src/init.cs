@@ -17,7 +17,7 @@ public class init{
                 writer.WriteLine("This file was created using TASK.md");
                 writer.WriteLine("https://github.com/democraz20/taskmd");
                 writer.WriteLine("-->");
-                writer.Write($"# {fileName} file");
+                writer.Write($"# Tasks");
             }
         }
         else{

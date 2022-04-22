@@ -3,7 +3,6 @@ This file was created using TASK.md
 https://github.com/democraz20/taskmd
 -->
 
-# TASK.md file
+# Tasks
 
 - [x] added file headings, might add more to it
-
