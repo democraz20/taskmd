@@ -9,9 +9,9 @@ public class del{
         //int indexToRemove = index;
         //convert string to in
         int indexToRemove = int.Parse(index);
-        lines = lines.Where((source, index) =>index != indexToRemove+3).ToArray();
+        lines = lines.Where((source, index) =>index != indexToRemove+4).ToArray();
         //rewrite file
-        read.colors(fileName, indexToRemove+3, "delete");
+        read.colors(fileName, indexToRemove+4, "delete");
         taskmd.rewriteAll(lines, fileName);
     }
 }

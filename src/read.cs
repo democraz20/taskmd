@@ -6,9 +6,9 @@ public class read{
     public static void colors(string fileName="TASK.md", int? editedLine = null, string? editMode = null){
         string[] lines = taskmd.indexFile(fileName);
         Console.WriteLine("");
-        for (int i = 3; i < lines.Length; i++)
+        for (int i = 4; i < lines.Length; i++)
         {
-            if (i < 4){
+            if (i < 5){
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(lines[i]);
                 Console.ResetColor();
@@ -19,7 +19,7 @@ public class read{
                 {
                     lsplit = splitted[splitted.Length-1];
                     if (splitted[1] == "[X]"){
-                        Console.Write($"{i-3}. [");
+                        Console.Write($"{i-4}. [");
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("✓");
                         Console.ResetColor();
@@ -32,12 +32,12 @@ public class read{
                         break;
                     }
                     else {
-                        Console.Write($"{i-3}. [");
+                        Console.Write($"{i-4}. [");
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("X");
                         Console.ResetColor();
                         Console.Write("] ");
-                        for (int x = 3; x < splitted.Length; x++)
+                        for (int x = 4; x < splitted.Length; x++)
                         {
                             Console.Write(splitted[x] + " ");
                         }

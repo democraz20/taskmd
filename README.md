@@ -13,7 +13,7 @@ also preview : <br/>
 * `read` - reads the file and write to the current terminal
 
 # Version
-__1.2.0__
+__1.2.1__
 
 ## upcoming 
 download link <br/>
