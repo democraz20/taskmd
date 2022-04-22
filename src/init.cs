@@ -13,10 +13,11 @@ public class init{
             Console.WriteLine($" File \"{fileName}\" created.");
             Thread.Sleep(1000);
             using (StreamWriter writer = new StreamWriter(fileName)){
-                writer.WriteLine("---");
-                writer.WriteLine("This file was created using TASK.md : https://github.com/democraz20/taskmd");
-                writer.WriteLine("---");
-                writer.Write($"# {fileName} file");
+                writer.WriteLine("<!---");
+                writer.WriteLine("This file was created using TASK.md");
+                writer.WriteLine("https://github.com/democraz20/taskmd");
+                writer.WriteLine("-->");
+                writer.Write($"# Tasks");
             }
         }
         else{
