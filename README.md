@@ -16,7 +16,7 @@ also preview : <br/>
 
 # Version
 
-**1.2.1**
+**1.2.2**
 
 ## upcoming
 

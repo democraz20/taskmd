@@ -28,7 +28,7 @@ public class read{
                         {
                             Console.Write(splitted[x] + " ");
                         }
-                        writeDetails(i, editedLine, editMode);
+                        writeDetails(i, editedLine+1, editMode);
                         break;
                     }
                     else {
@@ -37,11 +37,11 @@ public class read{
                         Console.Write("X");
                         Console.ResetColor();
                         Console.Write("] ");
-                        for (int x = 4; x < splitted.Length; x++)
+                        for (int x = 3; x < splitted.Length; x++)
                         {
                             Console.Write(splitted[x] + " ");
                         }
-                        writeDetails(i, editedLine, editMode);
+                        writeDetails(i, editedLine+1, editMode);
                         break;
                     }
                 }

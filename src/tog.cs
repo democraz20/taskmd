@@ -1,4 +1,4 @@
-
+using System.Linq;
 
 namespace taskmd;
 
@@ -14,9 +14,11 @@ public class tog{
         else{
             arr[1] = "[X]";
             arr[2] = "";
-            arr = arr.Where((source, index) =>index+3 != 2).ToArray();
+            //arr = arr.Where((source, index) =>index+3 != 2).ToArray();
+            arr = arr.Where((source, index) =>index != 2).ToArray();
         }
         lines[index+4] = string.Join(" ", arr);
+        Console.WriteLine("read.colors()");
         read.colors(fileName, index+3, "toggle");
         taskmd.rewriteAll(lines, fileName);
     }

@@ -15,6 +15,6 @@ public class add{
             }  
             writer.Write(newText);
         }  
-        read.colors(fileName, lines.Length, "add");
+        read.colors(fileName, lines.Length-1, "add");
     }
 }
