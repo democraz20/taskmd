@@ -6,20 +6,21 @@ public class read{
     public static void colors(string fileName="TASK.md", int? editedLine = null, string? editMode = null){
         string[] lines = taskmd.indexFile(fileName);
         Console.WriteLine("");
-        for (int i = 4; i < lines.Length; i++)
+        for (int i = 0; i < lines.Length+1; i++)
         {
-            if (i < 5){
+            if (i == 0){
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(lines[i]);
+                Console.WriteLine("Task");
                 Console.ResetColor();
             }else{
-                string lsplit = lines[i];
+                string lsplit = lines[i-1];
                 string[] splitted = lsplit.Split(" ");
-                for (int j = 0; j < splitted.Length-1; j++)
+                for (int j = 0; j < splitted.Length; j++)
                 {
-                    lsplit = splitted[splitted.Length-1];
+                    //lsplit = splitted[splitted.Length-1];
+                    //Console.WriteLine("test");
                     if (splitted[1] == "[X]"){
-                        Console.Write($"{i-4}. [");
+                        Console.Write($"{i}. [");
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("✓");
                         Console.ResetColor();
@@ -32,7 +33,7 @@ public class read{
                         break;
                     }
                     else {
-                        Console.Write($"{i-4}. [");
+                        Console.Write($"{i}. [");
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("X");
                         Console.ResetColor();

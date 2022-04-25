@@ -79,6 +79,10 @@ public class taskmd{
             new string[] { Environment.NewLine },
             StringSplitOptions.None
         );
+        for (int i = 0; i < 5; i++)
+        {
+            lines = lines.Where((source, index) =>index != 0).ToArray();
+        }
         return lines;
     }
     public static void rewriteAll(string[] lines, string fileName){ 

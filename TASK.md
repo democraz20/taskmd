@@ -5,3 +5,4 @@ https://github.com/democraz20/taskmd
 # Tasks
 - [ ] code comments
 - [ ] documentations
+- [ ] cleanup
