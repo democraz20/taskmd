@@ -94,6 +94,7 @@ public class taskmd{
             // a b c d f
             //          
             //Console.WriteLine("forloop start"); 
+            writer.WriteLine(headers.header);
             for (int i = 0; i < lines.Length-1; i++)
             {
                 writer.WriteLine(lines[i]);
@@ -101,4 +102,11 @@ public class taskmd{
             writer.Write(lines[lines.Length-1]);
         }
     }
+}
+public static class headers{
+    public static string header = @"<!---
+This file was created using TASK.md
+https://github.com/democraz20/taskmd
+-->
+# Tasks";
 }
