@@ -29,7 +29,7 @@ public class read{
                         {
                             Console.Write(splitted[x] + " ");
                         }
-                        writeDetails(i, editedLine+1, editMode);
+                        writeDetails(i, editedLine, editMode);
                         break;
                     }
                     else {
@@ -42,7 +42,7 @@ public class read{
                         {
                             Console.Write(splitted[x] + " ");
                         }
-                        writeDetails(i, editedLine+1, editMode);
+                        writeDetails(i, editedLine, editMode);
                         break;
                     }
                 }

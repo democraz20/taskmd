@@ -11,9 +11,8 @@ public class init{
             }
             //File.Create("Task.md");
             Console.WriteLine($" File \"{fileName}\" created.");
-            Thread.Sleep(1000);
             using (StreamWriter writer = new StreamWriter(fileName)){
-                writer.WriteLine(headers.header);
+                writer.WriteLine(taskmd.header);
             }
         }
         else{

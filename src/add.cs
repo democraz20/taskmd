@@ -9,12 +9,13 @@ public class add{
         string[] lines = taskmd.indexFile(fileName);
         using (StreamWriter writer = new StreamWriter(fileName))  
         {  
+            writer.WriteLine(taskmd.header);
             foreach (string line in lines)  
             {  
                 writer.WriteLine(line);  
             }  
             writer.Write(newText);
         }  
-        read.colors(fileName, lines.Length, "add");
+        read.colors(fileName, lines.Length+1, "add");
     }
 }
