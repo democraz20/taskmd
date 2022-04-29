@@ -20,11 +20,20 @@ public class read{
                     //lsplit = splitted[splitted.Length-1];
                     //Console.WriteLine("test");
                     if (splitted[1] == "[X]"){
-                        Console.Write($"{i}. [");
+                        Console.Write($"{i}. ");
+
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write("[");
+                        Console.ResetColor();
+
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write("✓");
                         Console.ResetColor();
+
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.Write("] ");
+                        Console.ResetColor();
+
                         for (int x = 2; x < splitted.Length; x++)
                         {
                             Console.Write(splitted[x] + " ");
@@ -33,11 +42,19 @@ public class read{
                         break;
                     }
                     else {
-                        Console.Write($"{i}. [");
+                        Console.Write($"{i}. ");
+
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write("[");
+                        Console.ResetColor();
+
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("X");
                         Console.ResetColor();
+
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.Write("] ");
+                        Console.ResetColor();
                         for (int x = 3; x < splitted.Length; x++)
                         {
                             Console.Write(splitted[x] + " ");
@@ -50,24 +67,20 @@ public class read{
         }
     }
     private static void writeDetails(int i, int? editedLine, string? editMode){
+        Console.ForegroundColor = ConsoleColor.DarkGray;
         if (editedLine == i){
             switch(editMode){
                 case "toggle":
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(" <= Toggled Line");
-                    Console.ResetColor();
                     break;
                 case "delete":
-                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(" <= Deleted Line");
-                    Console.ResetColor();
                     break;
                 case "add":
-                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(" <= Added Line");
-                    Console.ResetColor();
                     break;
             }
         }else{Console.WriteLine();}
+        Console.ResetColor();
     }
 }
