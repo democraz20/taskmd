@@ -19,7 +19,7 @@ public class tog{
         lines[index-1] = string.Join(" ", arr);
             Console.WriteLine("toggle");
         //Console.WriteLine("read.colors()");
-        read.colors(fileName, index, "toggle");
         taskmd.rewriteAll(lines, fileName);
+        read.colors(fileName, index, "toggle");
     }
 }

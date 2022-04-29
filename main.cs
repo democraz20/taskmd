@@ -79,7 +79,8 @@ public class taskmd{
             new string[] { Environment.NewLine },
             StringSplitOptions.None
         );
-        for (int i = 0; i < 5; i++)
+        //remove first lines for the file headers
+        for (int i = 0; i < 7; i++)
         {
             lines = lines.Where((source, index) =>index != 0).ToArray();
         }
@@ -106,6 +107,8 @@ public class taskmd{
 This file was created using TASK.md
 https://github.com/democraz20/taskmd
 -->
-# Tasks";
+
+# Tasks
+";
 
 }
