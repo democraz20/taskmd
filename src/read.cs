@@ -10,7 +10,7 @@ public class read{
         {
             if (i == 0){
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Task");
+                Console.WriteLine("Tasks");
                 Console.ResetColor();
             }else{
                 string lsplit = lines[i-1];
