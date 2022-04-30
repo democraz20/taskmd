@@ -8,3 +8,4 @@ https://github.com/democraz20/taskmd
 - [ ] code comments
 - [ ] documentations
 - [X] code cleanup
+- [ ] update README.md
