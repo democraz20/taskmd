@@ -5,7 +5,7 @@ namespace taskmd;
 
 public class taskmd{
     public static void core(string[] args){
-        string version = "1.2.2";
+        string version = "1.2.2"; //version
         if (args.Length == 0)
         {
             //com [0] [index] [file(optional)]
@@ -26,6 +26,7 @@ public class taskmd{
             return;
         }
         string firstarg = args[0].ToLower();
+        //case switch for args
         switch (firstarg){
             case "add":
                 if (args.Length == 3){
@@ -75,7 +76,7 @@ public class taskmd{
     //public uses might need do cleanup later
     public static string[] indexFile(string fileName){
         string readFile = File.ReadAllText(fileName, Encoding.UTF8);
-        string[] lines = readFile.Split(
+        string[] lines = readFile.Split( //split by newline
             new string[] { Environment.NewLine },
             StringSplitOptions.None
         );
@@ -103,6 +104,7 @@ public class taskmd{
             writer.Write(lines[lines.Length-1]);
         }
     }
+    //public string
     public static string header = @"<!---
 This file was created using TASK.md
 https://github.com/democraz20/taskmd
