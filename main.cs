@@ -6,6 +6,7 @@ namespace taskmd;
 public class taskmd{
     public static void core(string[] args){
         string version = "1.2.2"; //version
+        string devver = "1.2.3"; //development version
         if (args.Length == 0)
         {
             //com [0] [index] [file(optional)]
@@ -13,13 +14,14 @@ public class taskmd{
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@$"
             Task.md - version {version}
+            DEVBUILD : {devver}
             Usage : [filename]
             Commands : 
                 - init ,       [filename(optional)]
                 - add [task],  [filename(optional)]
                 - del [index], [filename(optional)]
                 - tog [index], [filename(optional)]
-                - read,       [filename(optional)]
+                - read,        [filename(optional)]
             Default file name for every command is 'Task.md'
             ");
             Console.ResetColor();   

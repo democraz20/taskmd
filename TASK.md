@@ -9,3 +9,4 @@ https://github.com/democraz20/taskmd
 - [ ] documentations
 - [X] code cleanup
 - [ ] update README.md
+- [ ] devbuild
