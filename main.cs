@@ -16,7 +16,7 @@ public class taskmd
     {
         switch(args[0]){
             case "read": //its ugly i know
-                if (args.Length == 1){read.readT();}
+                if (args.Length == 2){read.readT();}
                 else{read.readT(args[1]);}
                 break;
         }
