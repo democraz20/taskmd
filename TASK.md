@@ -5,5 +5,5 @@ https://github.com/democraz20/taskmd
 
 # Tasks
 
-- [ ] aebnoegab
-- [ ] ajbefgbas
+- [X] first line
+- [ ] second line
