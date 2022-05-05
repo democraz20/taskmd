@@ -23,6 +23,10 @@ public class taskmd
                 if (args.Length == 1){Console.WriteLine(" Missing arguements");}
                 else{add.addT(args[1]);}
                 break;
+            case "del":
+                if (args.Length == 1){Console.WriteLine(" Missing arguements");}
+                else{delete.delT(int.Parse(args[1]));}
+                break;
         }
     }
 
@@ -49,17 +53,21 @@ public class taskmd
         return lines[5];    //return index 5 because the task's name is at line 6
     }
     public static void reWrite(string[] lines, string fileName="TASK.md"){ //rewrite the file, public uses
-        File.WriteAllText(fileName, string.Empty);  //Empty the file
         string taskName = taskmd.taskName();
+        File.WriteAllText(fileName, string.Empty);  //Empty the file
         using (StreamWriter writer = new StreamWriter(fileName))  
         {  
             writer.WriteLine(taskmd.header);   //write the header
             writer.WriteLine(taskName);   //write the task's name
-            for (int i = 0; i < lines.Length-1; i++)
-            {
-                writer.WriteLine(lines[i]);  //write the lines
-            }
-            writer.Write(lines[lines.Length-1]);  //end it with a Write(); instead of a WriteLine();
+            if(lines.Length == 0){ Console.WriteLine("No tasks to display");
+            }else{
+                writer.WriteLine();
+                for (int i = 0; i < lines.Length-1; i++) //for every line in array lines
+                {
+                    writer.WriteLine(lines[i]);  //write the lines
+                }
+                writer.Write(lines[lines.Length-1]); 
+            } //end it with a Write(); instead of a WriteLine();
         }
     }
 

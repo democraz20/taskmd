@@ -5,5 +5,5 @@ https://github.com/democraz20/taskmd
 
 # Tasks
 
-- [ ] message
-- [ ] test message second
+- [ ] add toggle command
+- [X] add delete command
