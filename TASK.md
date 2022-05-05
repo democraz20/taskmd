@@ -7,3 +7,4 @@ https://github.com/democraz20/taskmd
 
 - [ ] add toggle command
 - [X] add delete command
+- [ ] add init command (somehow i forgot to do it)
