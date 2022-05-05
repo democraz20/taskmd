@@ -16,8 +16,12 @@ public class taskmd
     {
         switch(args[0]){
             case "read": //its ugly i know
-                if (args.Length == 2){read.readT();}
+                if (args.Length == 1){read.readT();}
                 else{read.readT(args[1]);}
+                break;
+            case "add":
+                if (args.Length == 1){Console.WriteLine(" Missing arguements");}
+                else{add.addT(args[1]);}
                 break;
         }
     }
@@ -65,4 +69,14 @@ This file was created using TASK.md
 https://github.com/democraz20/taskmd
 -->
 ";
+}
+
+
+//enum for editmode
+//empty is for wen nothing
+public enum editmode{
+    toggle,
+    add,
+    del, 
+    empty
 }
