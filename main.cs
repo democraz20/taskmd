@@ -15,6 +15,13 @@ public class taskmd
     public static void M(string[] args)
     {
         switch(args[0]){
+            case "init":
+                if (args.Length == 3){
+                    init.start(args[1], args[2]);
+                }else if (args.Length == 2){
+                    init.start(args[1]);}
+                else{init.start();}
+                break;
             case "read": //its ugly i know
                 if (args.Length == 1){read.readT();}
                 else{read.readT(args[1]);}
@@ -27,6 +34,7 @@ public class taskmd
                 if (args.Length == 1){Console.WriteLine(" Missing arguements");}
                 else{delete.delT(int.Parse(args[1]));}
                 break;
+
         }
     }
 
