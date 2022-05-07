@@ -58,9 +58,6 @@ public class read{ //editedLine and mode are nullable because the function can b
             case editmode.empty:
                 Console.WriteLine();
                 break;
-            case editmode.toggle:                                                                           
-                Console.WriteLine(" <= Toggled Line"); //uses writeline so this actually ends the line
-                break;
             case editmode.del:
                 Console.WriteLine(" <= Deleted Line");
                 break;
