@@ -5,6 +5,6 @@ https://github.com/democraz20/taskmd
 
 # Tasks
 
-- [ ] add toggle command
+- [X] add toggle command
 - [X] add delete command
-- [ ] add init command (somehow i forgot to do it)
+- [X] add init command (somehow i forgot to do it)

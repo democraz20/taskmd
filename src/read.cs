@@ -67,6 +67,9 @@ public class read{ //editedLine and mode are nullable because the function can b
             case editmode.add:
                 Console.WriteLine(" <= Added Line");
                 break;
+            case editmode.tog:
+                Console.WriteLine(" <= Toggled Line");
+                break;
         }
         Console.ResetColor();
     }

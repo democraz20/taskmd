@@ -41,6 +41,11 @@ public class taskmd
                     if (args.Length == 1){Console.WriteLine(" Missing arguements");}
                     else{add.addT(args[1]);}
                     break;
+                case "tog":
+                    if (args.Length == 3){tog.toggle(int.Parse(args[1]), args[2]);}
+                    else if (args.Length == 2){tog.toggle(int.Parse(args[1]));}
+                    else {Console.WriteLine(" Missing arguements");}
+                    break;
                 case "del":
                     if (args.Length == 1){Console.WriteLine(" Missing arguements");}
                     else{delete.delT(int.Parse(args[1]));}
@@ -102,8 +107,8 @@ https://github.com/democraz20/taskmd
 //enum for editmode
 //empty is for wen nothing
 public enum editmode{
-    toggle,
     add,
     del, 
+    tog,
     empty
 }
