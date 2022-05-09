@@ -6,6 +6,9 @@ preview : <br/>
 also preview : <br/>
 ![task2](https://github.com/democraz20/taskmd/blob/main/images/task2.PNG "preview")
 
+## Version 1.0.0!
+First official release since last cleanup
+
 # Commands
 
 - `init` - initialize a new todo list
@@ -16,9 +19,8 @@ also preview : <br/>
 
 # Version
 
-**1.2.2**
+**1.0.0**
 
 ## upcoming
 
-download link <br/>
-code comments (once stable build is made)<br/>
+Nothing upcoming as of now

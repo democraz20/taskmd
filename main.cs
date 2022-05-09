@@ -12,11 +12,13 @@ class Program
 }
 public class taskmd
 {
+    public static string version = "1.0.0";
     public static void M(string[] args)
     {
         if(args.Length == 0){ //usage
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(" Usage: [required] (optional)");
+            Console.WriteLine($" Version : {version}");
+            Console.WriteLine(" Usage   :  [required] (optional)");
             Console.WriteLine(" Commands: init (file header) (file name)");
             Console.WriteLine("         : add  [task] (file name)");
             Console.WriteLine("         : del  [task index] (file name)");
