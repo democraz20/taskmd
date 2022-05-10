@@ -9,6 +9,10 @@ also preview : <br/>
 ## Version 1.0.0!
 First official release since last cleanup
 
+# Downloads 
+## Linux : [1.0.0](https://www.mediafire.com/file/w38g866y6m3yrrn/taskmd/file)
+A Windows download file is coming, the app is acting very buggy on Windows as of now
+
 # Commands
 
 - `init` - initialize a new todo list
