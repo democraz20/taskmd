@@ -18,7 +18,7 @@ public class taskmd
         if(args.Length == 0){ //usage
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($" Version : {version}");
-            Console.WriteLine(" Usage   :  [required] (optional)");
+            Console.WriteLine(" Usage   : [required] (optional)");
             Console.WriteLine(" Commands: init (file header) (file name)");
             Console.WriteLine("         : add  [task] (file name)");
             Console.WriteLine("         : del  [task index] (file name)");
@@ -59,10 +59,7 @@ public class taskmd
     //default for fileName is TASK.md for almost everything
     public static string[] getLines(string fileName="TASK.md"){     //get all lines in a file, public uses
         string readFile = File.ReadAllText(fileName, Encoding.UTF8);
-        string[] lines = readFile.Split( //split by newline
-            new string[] { Environment.NewLine }, //blah blah
-            StringSplitOptions.None
-        );
+        string[] lines = readFile.Split("\n");
         //remove first 7 lines of which are not the tasks
         for (int i = 0; i < 7; i++)
         {
@@ -72,10 +69,7 @@ public class taskmd
     }
     public static string taskName(string fileName="TASK.md"){    //get the task's name, public uses
         string readFile = File.ReadAllText(fileName, Encoding.UTF8);
-        string[] lines = readFile.Split( //split by newline
-            new string[] { Environment.NewLine }, 
-            StringSplitOptions.None
-        );
+        string[] lines = readFile.Split("\n");
         return lines[5];    //return index 5 because the task's name is at line 6
     }
     public static void reWrite(string[] lines, string fileName="TASK.md"){ //rewrite the file, public uses

@@ -17,6 +17,26 @@ First official release since last cleanup
 - `tog` - toggle a task
 - `read` - reads the file and write to the current terminal
 
+## Setup
+
+1. Clone the repository
+
+```sh
+git clone https://github.com/democraz20/taskmd && cd dino
+```
+
+2. Restore/install packages
+
+```sh
+dotnet restore
+```
+
+3. Run with command
+
+```sh
+dotnet run [command]
+```
+
 # Version
 
 **1.0.0**
