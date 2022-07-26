@@ -36,13 +36,13 @@ fn main() -> crossterm::Result<()> {
 
 fn start() -> crossterm::Result<()> {
     let _clean_up = CleanUp;
-    let mut contents = file_manipulation::index_tasks();
     let mut index = 1;
-    let index_limit = contents.len();
-    utils::clear_screen_alternate();
     loop {
         terminal::enable_raw_mode()?;
+        utils::clear_screen_alternate();
         loop {
+            let mut contents = file_manipulation::index_tasks();
+            let index_limit = contents.len();
             if event::poll(Duration::from_millis(1000))? {
                 if let Event::Key(event) = event::read()? {
                     match event {
@@ -51,13 +51,15 @@ fn start() -> crossterm::Result<()> {
                         } => { return Ok(()) }
                         KeyEvent {
                             code: KeyCode::Char('p'), modifiers: event::KeyModifiers::NONE
-                        } => {}
+                        } => {
+                            file_manipulation::write(contents);
+                            println!("Wrote to file\r\n");
+                        }
                         _ => {/*default*/}
                     }
                 }
             }
         }
     }
-    // println!("{:?}", contents);
-    // Ok(())
+
 }
