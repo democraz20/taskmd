@@ -22,7 +22,7 @@ pub fn index_tasks() -> Vec<String> {
     contents
 }
 
-pub fn write(tasks: Vec<String>) {
+pub fn write_to_file(tasks: &Vec<String>) {
     let error_mes = "could not write to file";
     let mut file = OpenOptions::new()
         .read(true)

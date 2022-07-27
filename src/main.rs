@@ -14,6 +14,7 @@ use std::time::Duration;
 
 pub mod utils;
 pub mod file_manipulation;
+pub mod ops;
 
 struct CleanUp;
 
@@ -41,10 +42,10 @@ fn start() -> crossterm::Result<()> {
         terminal::enable_raw_mode()?;
         utils::clear_screen_alternate();
         loop {
-            let mut contents = file_manipulation::index_tasks();
-            let index_limit = contents.len();
             if event::poll(Duration::from_millis(1000))? {
                 if let Event::Key(event) = event::read()? {
+                    let mut contents = file_manipulation::index_tasks();
+                    let index_limit = contents.len();
                     match event {
                         KeyEvent {
                             code: KeyCode::Char('q'), modifiers: event::KeyModifiers::CONTROL
@@ -52,10 +53,55 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Char('p'), modifiers: event::KeyModifiers::NONE
                         } => {
-                            file_manipulation::write(contents);
+                            file_manipulation::write_to_file(&  contents);
                             println!("Wrote to file\r\n");
+                        },
+                        KeyEvent{
+                            code: KeyCode::Char('e'), modifiers: event::KeyModifiers::NONE
+                        } => {
+                            contents[index-1] = ops::edit(index, contents[index-1].clone());
+                            utils::log(&format!("contents[index-1] is : {}\n", contents[index-1]));
+                            utils::log("changed contents[index-1] value\n");
+                            file_manipulation::write_to_file(&contents);
+                            utils::log("wrote to file\n");
                         }
+
+
+                        //
+                        KeyEvent {
+                            code: KeyCode::Right, modifiers: event::KeyModifiers::NONE
+                        } => {  
+                            if index < index_limit {
+                                index += 1;
+                            }
+                        },
+                        KeyEvent {
+                            code: KeyCode::Left, modifiers: event::KeyModifiers::NONE
+                        } => { 
+                            if index > 1 {
+                                index -=1 ;
+                            }
+                        },
+                        KeyEvent {
+                            code: KeyCode::Down, modifiers: event::KeyModifiers::NONE
+                        } => {  
+                            if index < index_limit {
+                                index += 1;
+                            }
+                        },
+                        KeyEvent {
+                            code: KeyCode::Up, modifiers: event::KeyModifiers::NONE
+                        } => { 
+                            if index > 1 {
+                                index -=1 ;
+                            }
+                        },
                         _ => {/*default*/}
+                    }
+                    if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down{
+                        utils::clear_screen_alternate();
+                        println!("{:?}, index : {} \r", event, index);
+                        ops::print_item(index as usize, &contents);
                     }
                 }
             }
