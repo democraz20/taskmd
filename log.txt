@@ -1,7 +1,0 @@
-contents[index-1] is :  - [ ] Actually making the app
-changed contents[index-1] value
-wrote to file
-contents[index-1] is : asdads
-
-changed contents[index-1] value
-wrote to file

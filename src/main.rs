@@ -12,9 +12,14 @@ use crossterm::execute;
 use std::io::stdout;
 use std::time::Duration;
 
+use crate::utils::file_manipulation::file_manipulation;
+use crate::utils::tools::tools;
+use crate::utils::ops::ops;
 pub mod utils;
-pub mod file_manipulation;
-pub mod ops;
+
+// pub mod utils;
+// pub mod file_manipulation;
+// pub mod ops;
 
 struct CleanUp;
 
@@ -40,7 +45,8 @@ fn start() -> crossterm::Result<()> {
     let mut index = 1;
     loop {
         terminal::enable_raw_mode()?;
-        utils::clear_screen_alternate();
+        // utils::clear_screen_alternate();
+        tools::clear_screen_alternate();
         loop {
             if event::poll(Duration::from_millis(1000))? {
                 if let Event::Key(event) = event::read()? {
@@ -50,24 +56,42 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Char('q'), modifiers: event::KeyModifiers::CONTROL
                         } => { return Ok(()) }
-                        KeyEvent {
-                            code: KeyCode::Char('p'), modifiers: event::KeyModifiers::NONE
-                        } => {
-                            file_manipulation::write_to_file(&  contents);
-                            println!("Wrote to file\r\n");
-                        },
                         KeyEvent{
                             code: KeyCode::Char('e'), modifiers: event::KeyModifiers::NONE
                         } => {
-                            contents[index-1] = ops::edit(index, contents[index-1].clone());
-                            utils::log(&format!("contents[index-1] is : {}\n", contents[index-1]));
-                            utils::log("changed contents[index-1] value\n");
-                            file_manipulation::write_to_file(&contents);
-                            utils::log("wrote to file\n");
+
+                            //to check for the original value, check from before edit is called
+                            let temp_contents_item = ops::edit(index, contents[index-1].clone());
+                            contents[index-1] = temp_contents_item; 
+                            // contents[index-1] = ops::edit(index, contents[index-1].clone());
+                            //get original edit_status value 
+                            // let current_item = contents.get(index-1);
+                            tools::log(&format!("contents is {:?}", contents));
+                            
+                            let current_item = &contents[index-1];
+                            
+                            tools::log(&format!("current_item is : {}", current_item));
+
+                            let s = current_item.split(" ");
+                            let mut _vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
+
+                            tools::log(&format!["_vec is : {:?}", _vec]);
+
+                            let mut index_status: bool = false;
+                            // let ele = _vec.get(2).expect("");
+                            // if ele == "[" {
+                            //     index_status = false;
+                            // } else if ele == "[x]" {
+                            //     index_status = true;
+                            // }
+                            tools::log(&format!("contents before writing : {:?}", contents));
+                            file_manipulation::write_to_file(&contents, index, index_status);
+                            // utils::log("wrote to file\n");
                         }
 
 
-                        //
+                        //navigation
+                        //dont mess with
                         KeyEvent {
                             code: KeyCode::Right, modifiers: event::KeyModifiers::NONE
                         } => {  
@@ -98,9 +122,9 @@ fn start() -> crossterm::Result<()> {
                         },
                         _ => {/*default*/}
                     }
-                    if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down{
-                        utils::clear_screen_alternate();
-                        println!("{:?}, index : {} \r", event, index);
+                    if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down
+                    {
+                        // println!("{:?}, index : {} \r", event, index);
                         ops::print_item(index as usize, &contents);
                     }
                 }
