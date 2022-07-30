@@ -3,4 +3,5 @@
 built previously with c# </br>
 now being remade with rust.
 
-A good README is coming one day..
+A good README is coming one day.. </br>
+not this day yet
