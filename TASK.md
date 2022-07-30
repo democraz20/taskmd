@@ -5,8 +5,8 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [ ] aegkneakgn
- - [ ] ehjeihei
+ - [ ] waow
+ - [ ] making a good thing
  - [ ] a good README
  - [ ] key alias
  - [x] terminal stuff (raw mode, alternate screen, key inputs)

@@ -6,7 +6,7 @@ pub mod file_manipulation{
     use std::fs;
     use std::fs::OpenOptions;
     use std::io::Write;
-    use crate::utils::tools::tools;
+    // use crate::utils::tools::tools;
 
     pub fn index_tasks() -> Vec<String> {
         let contents = fs::read_to_string("TASK.md").expect("Unable to read file");

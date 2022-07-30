@@ -16,11 +16,31 @@ pub mod ops{
         // print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
         print!("\n\n");
         for (ind, ele) in items.iter().enumerate() {
-            if ind+1 == index {
-                println!("    > {}\r", ele.clone().green());
-            } else {
-                println!("      {}\r", ele);
+            let element = ele.clone();
+            let s = element.split(" ");
+            let mut vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
+            if vec[2] == "[" {
+                for i in 0..4 {
+                    vec.remove(0);
+                }
+            } else if vec[2] == "[x]" {
+                for i in 0..3 {
+                    vec.remove(0);
+                }
             }
+            let contents_final = vec.join(" ");
+            if ind+1 == index {
+                print!("    > {}\r", contents_final.green());
+                println!();
+            } else {
+                print!("      {}\r", contents_final);
+                println!();
+            }
+            // if ind+1 == index {
+            //     println!("    > {}\r", ele.clone().green());
+            // } else {
+            //     println!("      {}\r", ele);
+            // }
         }
         // println!("\r");
         // utils::clear_screen_alternate();
