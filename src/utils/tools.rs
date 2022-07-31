@@ -35,12 +35,16 @@ pub mod tools{
         let mut char_vec: Vec<char> = input.chars().collect();
 
         //char_vec maybe empty, need fix
-        if char_vec[char_vec.len()-1] == '\n' {
-            char_vec.remove(char_vec.len()-1);
-            // char_vec.remove(char_vec.len()-1);
-        }
-        if char_vec[char_vec.len()-1] == '\r' {
-            char_vec.remove(char_vec.len()-1);
+        if char_vec.len() > 0 {
+            if char_vec[char_vec.len()-1] == '\n' {
+                char_vec.remove(char_vec.len()-1);
+                // char_vec.remove(char_vec.len()-1);
+            }
+            if char_vec.len() > 0 {
+                if char_vec[char_vec.len()-1] == '\r' {
+                    char_vec.remove(char_vec.len()-1);
+                }
+            }
         }
         // char_vec.join();
         let joined: String = char_vec.iter().collect();

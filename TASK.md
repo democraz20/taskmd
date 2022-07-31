@@ -5,10 +5,10 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [ ] waow
- - [ ] making a good thing
+ - [ ] it's got the unicode things now
+ - [ ] and edit now writes to file
  - [ ] a good README
- - [ ] key alias
+ - [ ] cant toggle yet
  - [x] terminal stuff (raw mode, alternate screen, key inputs)
 
 > Made with [TASKmd](https://github.com/democraz20/taskmd)

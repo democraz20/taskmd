@@ -88,32 +88,29 @@ fn start() -> crossterm::Result<()> {
                         //dont mess with
                         KeyEvent {
                             code: KeyCode::Right, modifiers: event::KeyModifiers::NONE
-                        } => {  
-                            if index < index_limit {
-                                index += 1;
-                            }
-                        },
+                        } => {  if index < index_limit {index += 1;}},
                         KeyEvent {
                             code: KeyCode::Left, modifiers: event::KeyModifiers::NONE
-                        } => { 
-                            if index > 1 {
-                                index -=1 ;
-                            }
-                        },
+                        } => { if index > 1 {index -=1 ;}},
                         KeyEvent {
                             code: KeyCode::Down, modifiers: event::KeyModifiers::NONE
-                        } => {  
-                            if index < index_limit {
-                                index += 1;
-                            }
-                        },
+                        } => {  if index < index_limit {index += 1;}},
                         KeyEvent {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::NONE
-                        } => { 
-                            if index > 1 {
-                                index -=1 ;
-                            }
-                        },
+                        } => { if index > 1 {index -=1 ;}},
+                        //key aliases 
+                        KeyEvent {
+                            code: KeyCode::Char('h'), modifiers: event::KeyModifiers::NONE
+                        } => {  if index < index_limit {index += 1;}},
+                        KeyEvent {
+                            code: KeyCode::Char('l'), modifiers: event::KeyModifiers::NONE
+                        } => { if index > 1 {index -=1 ;}},
+                        KeyEvent {
+                            code: KeyCode::Char('j'), modifiers: event::KeyModifiers::NONE
+                        } => {  if index < index_limit {index += 1;}},
+                        KeyEvent {
+                            code: KeyCode::Char('k'), modifiers: event::KeyModifiers::NONE
+                        } => { if index > 1 {index -=1 ;}},
                         _ => {/*default*/}
                     }
                     if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down

@@ -19,21 +19,36 @@ pub mod ops{
             let element = ele.clone();
             let s = element.split(" ");
             let mut vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
+            let mut selected_status: bool = false;
             if vec[2] == "[" {
-                for i in 0..4 {
+                for _ in 0..4 {
                     vec.remove(0);
                 }
+                selected_status = false;
             } else if vec[2] == "[x]" {
-                for i in 0..3 {
+                for _ in 0..3 {
                     vec.remove(0);
                 }
+                selected_status = true;
             }
             let contents_final = vec.join(" ");
             if ind+1 == index {
-                print!("    > {}\r", contents_final.green());
+                print!("    > ");
+                if !selected_status {
+                    print!("{} ", "x".red());
+                } else {
+                    print!("{} ", "✓".green());
+                }
+                print!("{}\r", contents_final.green());
                 println!();
             } else {
-                print!("      {}\r", contents_final);
+                print!("      ");
+                if !selected_status {
+                    print!("{} ", "x".red());
+                } else {
+                    print!("{} ", "✓".green());
+                }
+                print!("{}\r", contents_final);
                 println!();
             }
             // if ind+1 == index {
@@ -48,11 +63,11 @@ pub mod ops{
 
     #[allow(unused_must_use)]
     pub fn edit(index: usize, item_to_edit: String) -> String{
-        execute!(stdout(), MoveTo(6, (index as u16)+1));
+        execute!(stdout(), MoveTo(8, (index as u16)+1));
         for _ in 0..item_to_edit.len()+7 {
             print!(" ");
         }
-        execute!(stdout(), MoveTo(6, (index as u16)+1));
+        execute!(stdout(), MoveTo(8, (index as u16)+1));
         match terminal::disable_raw_mode() {
             Ok(_) => {
                 let mut input = String::new();
