@@ -5,7 +5,7 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [ ] it's got the unicode things now
+ - [ ] you can add new tasks now
  - [ ] and edit now writes to file
  - [ ] a good README
  - [ ] cant toggle yet

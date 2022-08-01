@@ -77,11 +77,18 @@ fn start() -> crossterm::Result<()> {
                             contents[index-1] = temp_contents_item; 
                             
                             // ops::print_item(index, &contents);
-                            file_manipulation::write_to_file(&contents, index, index_status);
+                            file_manipulation::write_to_file_edit(&contents, index, index_status);
                             // utils::log("wrote to file\n");
                             contents[index-1] = t+&contents[index-1];
                             ops::print_item(index, &contents)
                         }
+                        KeyEvent{
+                            code: KeyCode::Char('a'), modifiers: event::KeyModifiers::NONE
+                        } => {
+                            contents.push(" - [ ] New Task".to_string());
+                            file_manipulation::write_to_file(&contents);
+                            ops::print_item(index, &contents);
+                        },
 
 
                         //navigation
