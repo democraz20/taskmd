@@ -5,7 +5,7 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [ ] you can add new tasks now
+ - [ ] waow hello
  - [ ] and edit now writes to file
  - [ ] a good README
  - [ ] cant toggle yet

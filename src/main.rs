@@ -2,6 +2,7 @@ use crossterm::event::{Event, KeyCode, KeyEvent};
 use crossterm::{event, terminal};
 use crossterm::{terminal::{EnterAlternateScreen, LeaveAlternateScreen}};
 use crossterm::execute;
+use crossterm::cursor;
 // use crossterm::Result;
 
 // use crossterm::style::Stylize;
@@ -59,6 +60,7 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent{
                             code: KeyCode::Char('e'), modifiers: event::KeyModifiers::NONE
                         } => {
+                            execute!(stdout(), cursor::Show)?;
                             let current_item = &contents[index-1];
                             let s = current_item.split(" ");
                             let mut _vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
@@ -105,19 +107,6 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::NONE
                         } => { if index > 1 {index -=1 ;}},
-                        //key aliases 
-                        KeyEvent {
-                            code: KeyCode::Char('h'), modifiers: event::KeyModifiers::NONE
-                        } => {  if index < index_limit {index += 1;}},
-                        KeyEvent {
-                            code: KeyCode::Char('l'), modifiers: event::KeyModifiers::NONE
-                        } => { if index > 1 {index -=1 ;}},
-                        KeyEvent {
-                            code: KeyCode::Char('j'), modifiers: event::KeyModifiers::NONE
-                        } => {  if index < index_limit {index += 1;}},
-                        KeyEvent {
-                            code: KeyCode::Char('k'), modifiers: event::KeyModifiers::NONE
-                        } => { if index > 1 {index -=1 ;}},
                         _ => {/*default*/}
                     }
                     if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down
@@ -125,6 +114,7 @@ fn start() -> crossterm::Result<()> {
                         // println!("{:?}, index : {} \r", event, index);
                         ops::print_item(index as usize, &contents);
                     }
+                    execute!(stdout(), cursor::Hide)?;
                     // ops::print_item(index, &contents);
                 }
             }
