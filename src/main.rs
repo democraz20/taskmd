@@ -88,6 +88,10 @@ fn start() -> crossterm::Result<()> {
                             code: KeyCode::Char('a'), modifiers: event::KeyModifiers::NONE
                         } => {
                             contents.push(" - [ ] New Task".to_string());
+                            index = contents.len();
+                            ops::print_item(index, &contents);
+                            let temp_contents_item = ops::edit(index, contents[index-1].clone());
+                            contents[index-1] = " - [ ] ".to_string()+&temp_contents_item;
                             file_manipulation::write_to_file(&contents);
                             ops::print_item(index, &contents);
                         },

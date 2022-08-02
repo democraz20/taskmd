@@ -4,6 +4,7 @@ pub mod ops{
     use crossterm::execute;
     // use crossterm::Result;
     use crossterm::cursor::MoveTo;
+    use crossterm::cursor;
     
     use std::io;
     // use std::process;
@@ -63,6 +64,7 @@ pub mod ops{
 
     #[allow(unused_must_use)]
     pub fn edit(index: usize, item_to_edit: String) -> String{
+        execute!(stdout(), cursor::Show);
         execute!(stdout(), MoveTo(8, (index as u16)+1));
         for _ in 0..item_to_edit.len()+7 {
             print!(" ");
