@@ -54,9 +54,11 @@ fn start() -> crossterm::Result<()> {
                     let mut contents = file_manipulation::index_tasks();
                     let index_limit = contents.len();
                     match event {
+                        //exit program (q+CTRL)
                         KeyEvent {
                             code: KeyCode::Char('q'), modifiers: event::KeyModifiers::CONTROL
                         } => { return Ok(()) }
+                        //edit command
                         KeyEvent{
                             code: KeyCode::Char('e'), modifiers: event::KeyModifiers::NONE
                         } => {
@@ -75,7 +77,7 @@ fn start() -> crossterm::Result<()> {
                                 t = " - [x] ".to_string();
                             }
                             //to check for the original value, check from before edit is called
-                            let temp_contents_item = ops::edit(index, contents[index-1].clone());
+                            let temp_contents_item = ops::edit(index, contents[index-1].len());
                             contents[index-1] = temp_contents_item; 
                             
                             // ops::print_item(index, &contents);
@@ -84,15 +86,25 @@ fn start() -> crossterm::Result<()> {
                             contents[index-1] = t+&contents[index-1];
                             ops::print_item(index, &contents)
                         }
+                        //add command
                         KeyEvent{
                             code: KeyCode::Char('a'), modifiers: event::KeyModifiers::NONE
                         } => {
                             contents.push(" - [ ] New Task".to_string());
                             index = contents.len();
                             ops::print_item(index, &contents);
-                            let temp_contents_item = ops::edit(index, contents[index-1].clone());
+                            let temp_contents_item = ops::edit(index, contents[index-1].len());
                             contents[index-1] = " - [ ] ".to_string()+&temp_contents_item;
                             file_manipulation::write_to_file(&contents);
+                            ops::print_item(index, &contents);
+                        },
+                        //delete command
+                        KeyEvent {
+                            code: KeyCode::Char('d'), modifiers: event::KeyModifiers::NONE
+                        } => {
+                            contents.remove(index-1);
+                            file_manipulation::write_to_file(&contents);
+                            index -= 1;
                             ops::print_item(index, &contents);
                         },
 

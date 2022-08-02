@@ -63,10 +63,11 @@ pub mod ops{
     }
 
     #[allow(unused_must_use)]
-    pub fn edit(index: usize, item_to_edit: String) -> String{
+    pub fn edit(index: usize, item_to_edit: usize) -> String{
         execute!(stdout(), cursor::Show);
         execute!(stdout(), MoveTo(8, (index as u16)+1));
-        for _ in 0..item_to_edit.len()+7 {
+        // for _ in 0..item_to_edit.len()+7 {
+        for _ in 0..item_to_edit {
             print!(" ");
         }
         execute!(stdout(), MoveTo(8, (index as u16)+1));
