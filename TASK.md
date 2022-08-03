@@ -6,7 +6,7 @@ git repository : https://github.com/democraz20/taskmd
 # Tasks 
 
  - [ ] waow hello
- - [ ] and edit now writes to file
+ - [x] and edit now writes to file
  - [ ] a good README
  - [ ] cant toggle yet
  - [x] terminal stuff (raw mode, alternate screen, key inputs)

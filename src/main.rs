@@ -15,6 +15,7 @@ use std::time::Duration;
 
 use crate::utils::file_manipulation::file_manipulation;
 use crate::utils::tools::tools;
+// use crate::utils::tools::tools::log;
 use crate::utils::ops::ops;
 pub mod utils;
 
@@ -107,6 +108,39 @@ fn start() -> crossterm::Result<()> {
                             index -= 1;
                             ops::print_item(index, &contents);
                         },
+                        //toggle command
+                        KeyEvent {
+                            code: KeyCode::Char('t'), modifiers: event::KeyModifiers::NONE
+                        } => {
+                            let contents_item: String = contents[index-1].clone();
+                            let s = contents_item.split(" ");
+                            let mut vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
+                            let ele = vec.get(2).expect("");
+                            // let mut t: String = "".to_string();
+                            if ele == "[" {
+                                // " - [ ] item"
+                                //   0 1 2 3..
+                                for _ in 0..4 {
+                                    vec.remove(0);
+                                }
+                                // log(&format!("vec is : {:?}", vec));
+                                let mut joined = vec.join(" ");
+                                joined = " - [x] ".to_string()+&joined;
+                                contents[index-1] = joined;
+                            } else if ele == "[x]" {
+                                // " - [x] item"
+                                //   0  1  2..
+                                for _ in 0..3{
+                                    vec.remove(0);
+                                }
+                                // log(&format!("vec is : {:?}", vec));
+                                let mut joined = vec.join(" ");
+                                joined = " - [ ] ".to_string()+&joined;
+                                contents[index-1] = joined;
+                            }
+                            file_manipulation::write_to_file(&contents);
+                            ops::print_item(index, &contents)
+                        }
 
 
                         //navigation
