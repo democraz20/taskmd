@@ -1,7 +1,37 @@
 # TASKmd
 
-built previously with c# </br>
-now being remade with rust.
+A light weight project's todos manager
 
-A good README is coming one day.. </br>
-not this day yet
+## Download and Installation
+**incoming**
+
+## Keys
+
+|   Key   |         Description          |    alias   |
+| :-----: | :--------------------------: | :--------: |
+| Up/Down | Moves the cursor up and down | Left\Right |
+|    A    | Adds a Task                  |      -     |
+|    E    | Edits an Existing task       |      -     |
+|    T    | Toggles selected task        |      -     |
+|    D    | Deletes a task               |      -     |
+
+## Contributing \ Development
+
+1. Star and fork this repository
+2. Clone your fork
+```bash
+git clone https:\\github.com\democraz20\taskmd
+cd taskmd
+```
+3. Update dependencies
+```bash
+cargo update
+```
+4. Running 
+```bash
+cargo run 
+```
+5. building 
+```bash
+cargo build
+```
