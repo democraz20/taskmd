@@ -157,6 +157,14 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::NONE
                         } => { if index > 1 {index -=1 ;}},
+
+                        //moving tasks
+                        KeyEvent {
+                            code: KeyCode::Down, modifiers: event::KeyModifiers::SHIFT
+                        } => {}
+                        KeyEvent {
+                            code: KeyCode::Up, modifiers: event::KeyModifiers::SHIFT
+                        } => {},
                         _ => {/*default*/}
                     }
                     if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down
