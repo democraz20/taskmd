@@ -2,8 +2,12 @@
 
 A light weight project's todos manager
 
+___
 ## Download and Installation
+
 **incoming**
+
+___
 
 ## Keys
 
@@ -14,6 +18,9 @@ A light weight project's todos manager
 |    E    | Edits an Existing task       |      -     |
 |    T    | Toggles selected task        |      -     |
 |    D    | Deletes a task               |      -     |
+| Ctrl + Q| Exits program                |      -     |
+
+___
 
 ## Contributing \ Development
 
