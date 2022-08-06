@@ -5,11 +5,10 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [x] waow hello
- - [x] and edit now writes to file
- - [ ] a good README
- - [x] toggle function
- - [x] terminal stuff (raw mode, alternate screen, key inputs)
- - [ ] moving tasks up/down
+ - [ ] 1a
+ - [ ] 2b
+ - [ ] 3c
+ - [ ] 4d
+ - [ ] 5e
 
 > Made with [TASKmd](https://github.com/democraz20/taskmd)

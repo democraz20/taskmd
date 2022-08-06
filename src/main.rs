@@ -159,12 +159,28 @@ fn start() -> crossterm::Result<()> {
                         } => { if index > 1 {index -=1 ;}},
 
                         //moving tasks
-                        KeyEvent {
+                        KeyEvent { //works now, only error handling left
                             code: KeyCode::Down, modifiers: event::KeyModifiers::SHIFT
-                        } => {}
+                        } => {
+                            let a = contents[index-1].clone();
+                            let b = contents[index].clone();
+                            tools::log(&format!(" a : {}, b : {}", a, b));
+
+                            contents[index] = a;
+                            contents[index-1] = b;
+                            file_manipulation::write_to_file(&contents);
+                        }
                         KeyEvent {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::SHIFT
-                        } => {},
+                        } => {
+                            let a = contents[index-1].clone();
+                            let b = contents[index-2].clone();
+                            tools::log(&format!(" a : {}, b : {}", a, b));
+
+                            contents[index-2] = a;
+                            contents[index-1] = b;
+                            file_manipulation::write_to_file(&contents);
+                        },
                         _ => {/*default*/}
                     }
                     if event.code == KeyCode::Right || event.code == KeyCode::Left || event.code == KeyCode::Up || event.code == KeyCode::Down
