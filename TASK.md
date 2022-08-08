@@ -5,10 +5,12 @@ git repository : https://github.com/democraz20/taskmd
 
 # Tasks 
 
- - [ ] 1a
- - [ ] 2b
- - [ ] 3c
- - [ ] 4d
- - [ ] 5e
+ - [x] moving tasks 
+ - [ ] alias for moving tasks
+ - [ ] add moving tasks keys to README
+ - [x] remove unnessary comments
+ - [ ] remove unnessary function
+ - [ ] remove logging function
+ - [ ] key alias for exit (only Q)
 
 > Made with [TASKmd](https://github.com/democraz20/taskmd)

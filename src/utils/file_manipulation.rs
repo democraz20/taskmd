@@ -1,8 +1,3 @@
-// use std::fs::File;
-
-// use std::io::ErrorKind;
-
-
 pub mod file_manipulation{    
     const HEADER: &str = "<!-- this file was generated with TASKmd 
 git repository : https://github.com/democraz20/taskmd
@@ -18,12 +13,10 @@ git repository : https://github.com/democraz20/taskmd
     use std::fs;
     use std::fs::OpenOptions;
     use std::io::Write;
-    // use crate::utils::tools::tools;
 
     pub fn index_tasks() -> Vec<String> {
         let contents = fs::read_to_string("TASK.md").expect("Unable to read file");
         let contents = contents.split("\n");
-        //LITERAL LIFE SAVER
         let mut contents: Vec<String> = contents.map(String::from).collect::<Vec<_>>();
         for _ in 0..7 {
             contents.remove(0);
@@ -31,7 +24,6 @@ git repository : https://github.com/democraz20/taskmd
         for _ in 0..2 {
             contents.remove(contents.len() - 1);
         }
-        //trim array
         contents
     }
 
@@ -47,7 +39,6 @@ git repository : https://github.com/democraz20/taskmd
 
         //its gotta be like that
         file.write_all(HEADER.as_bytes()).expect(error_mes);
-        // file.write_all(b"# Tasks\n\n").expect(error_mes);
         
         for (ind, ele) in tasks.iter().enumerate() {
             if ind == edit_index-1 {
@@ -58,7 +49,6 @@ git repository : https://github.com/democraz20/taskmd
                     file.write_all(b" - [x] ").expect(error_mes);
                     file.write_all(ele.as_bytes()).expect(error_mes);
                 }
-                // file.write_all(ele.as_bytes()).expect(error_mes);
             }
             else {
                 file.write_all(ele.as_bytes()).expect(error_mes);
@@ -66,7 +56,6 @@ git repository : https://github.com/democraz20/taskmd
             file.write_all(b"\n").expect(error_mes);        
         }
         file.write_all(FOOTER.as_bytes()).expect(error_mes);
-        // file.write_all(b"test");
     }
 
     pub fn write_to_file(tasks: &Vec<String>){

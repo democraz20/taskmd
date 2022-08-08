@@ -1,24 +1,3 @@
-// use crossterm::event::{Event, KeyCode, KeyEvent};
-// use crossterm::terminal;
-// use crossterm::{terminal::{EnterAlternateScreen, LeaveAlternateScreen}};
-// use crossterm::event;
-// use crossterm::execute;
-// use crossterm::Result;
-// use crossterm::cursor::MoveTo;
-// use crossterm::style::Stylize;
-
-// use std::io;
-// use std::process;
-// use std::io::Write;
-// use std::io::stdout;
-
-// use std::fs::File;
-// use std::fs;
-// use std::fs::File;
-// use std::io;
-
-// use std::time::Duration;
-
 pub mod tools{
     use std::io::Write;
     use std::fs::OpenOptions;
@@ -38,7 +17,6 @@ pub mod tools{
         if char_vec.len() > 0 {
             if char_vec[char_vec.len()-1] == '\n' {
                 char_vec.remove(char_vec.len()-1);
-                // char_vec.remove(char_vec.len()-1);
             }
             if char_vec.len() > 0 {
                 if char_vec[char_vec.len()-1] == '\r' {
@@ -46,7 +24,6 @@ pub mod tools{
                 }
             }
         }
-        // char_vec.join();
         let joined: String = char_vec.iter().collect();
         joined
     }
@@ -62,6 +39,5 @@ pub mod tools{
             .unwrap();
 
         file.write_all(format!("[logger] {}\n", log_text).as_bytes()).expect(error_mes);
-        // file.write_all(log_text.as_bytes()).expect(error_mes);
     }
 }
