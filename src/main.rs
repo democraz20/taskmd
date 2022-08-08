@@ -149,11 +149,11 @@ fn start() -> crossterm::Result<()> {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::SHIFT
                         } => {
                             if index != 1{
-                                let a = contents[index-1].clone();
-                                let b = contents[index].clone();
+                                let a = contents[index-2].clone();
+                                let b = contents[index-1].clone();
 
-                                contents[index] = a;
-                                contents[index-1] = b;
+                                contents[index-1] = a;
+                                contents[index-2] = b;
                             }
                             file_manipulation::write_to_file(&contents);
                         },
