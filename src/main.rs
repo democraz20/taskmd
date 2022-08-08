@@ -162,23 +162,33 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent { //works now, only error handling left
                             code: KeyCode::Down, modifiers: event::KeyModifiers::SHIFT
                         } => {
-                            let a = contents[index-1].clone();
-                            let b = contents[index].clone();
-                            tools::log(&format!(" a : {}, b : {}", a, b));
-
-                            contents[index] = a;
-                            contents[index-1] = b;
+                            // let a = contents[index-1].clone();
+                            // let b = contents[index].clone();
+                            // let a;
+                            // let b;
+                            if index != contents.len(){
+                                let a = contents[index-1].clone();
+                                let b = contents[index].clone();
+                                // tools::log(&format!(" a : {}, b : {}", a, b));
+    
+                                contents[index] = a;
+                                contents[index-1] = b;
+                            }
+                                // tools::log(&format!(" a : {}, b : {}", a, b));
+                            // contents[index] = a;
+                            // contents[index-1] = b;
                             file_manipulation::write_to_file(&contents);
                         }
                         KeyEvent {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::SHIFT
                         } => {
-                            let a = contents[index-1].clone();
-                            let b = contents[index-2].clone();
-                            tools::log(&format!(" a : {}, b : {}", a, b));
+                            if index != 1{
+                                let a = contents[index-1].clone();
+                                let b = contents[index].clone();
 
-                            contents[index-2] = a;
-                            contents[index-1] = b;
+                                contents[index] = a;
+                                contents[index-1] = b;
+                            }
                             file_manipulation::write_to_file(&contents);
                         },
                         _ => {/*default*/}
