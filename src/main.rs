@@ -42,10 +42,14 @@ fn start() -> crossterm::Result<()> {
                     match event {
                         KeyEvent {
                             code: KeyCode::Char('q'), modifiers: event::KeyModifiers::CONTROL
-                        } => { return Ok(()) }
+                        } => { 
+                            // tools::log("Exit");
+                            return Ok(()) 
+                        }
                         KeyEvent{
                             code: KeyCode::Char('e'), modifiers: event::KeyModifiers::NONE
                         } => {
+                            // tools::log("Editing Task");
                             execute!(stdout(), cursor::Show)?;
                             let current_item = &contents[index-1];
                             let s = current_item.split(" ");
@@ -72,6 +76,7 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent{
                             code: KeyCode::Char('a'), modifiers: event::KeyModifiers::NONE
                         } => {
+                            // tools::log("Added Task");
                             contents.push(" - [ ] New Task".to_string());
                             index = contents.len();
                             ops::print_item(index, &contents);
@@ -84,6 +89,7 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Char('d'), modifiers: event::KeyModifiers::NONE
                         } => {
+                            // tools::log("Deleted Task");
                             contents.remove(index-1);
                             file_manipulation::write_to_file(&contents);
                             index -= 1;
@@ -93,6 +99,7 @@ fn start() -> crossterm::Result<()> {
                         KeyEvent {
                             code: KeyCode::Char('t'), modifiers: event::KeyModifiers::NONE
                         } => {
+                            // tools::log("Toggled Task");
                             let contents_item: String = contents[index-1].clone();
                             let s = contents_item.split(" ");
                             let mut vec: Vec<String> = s.map(String::from).collect::<Vec<_>>();
@@ -132,7 +139,33 @@ fn start() -> crossterm::Result<()> {
                             code: KeyCode::Up, modifiers: event::KeyModifiers::NONE
                         } => { if index > 1 {index -=1 ;}},
 
-                        //moving tasks
+                        //moving tasks+
+                        KeyEvent {
+                            code: KeyCode::Right, modifiers: event::KeyModifiers::SHIFT
+                        } => {
+                            if index != contents.len(){
+                                let a = contents[index-1].clone();
+                                let b = contents[index].clone();
+    
+                                contents[index] = a;
+                                contents[index-1] = b;
+                            }
+                            if index < index_limit {index += 1;}
+                            file_manipulation::write_to_file(&contents);
+                        },
+                        KeyEvent{
+                            code: KeyCode::Left, modifiers: event::KeyModifiers::SHIFT
+                        } => {
+                            if index != 1{
+                                let a = contents[index-2].clone();
+                                let b = contents[index-1].clone();
+
+                                contents[index-1] = a;
+                                contents[index-2] = b;
+                            }
+                            if index > 1 {index -=1 ;}
+                            file_manipulation::write_to_file(&contents);
+                        },
                         KeyEvent {
                             code: KeyCode::Down, modifiers: event::KeyModifiers::SHIFT
                         } => {
@@ -143,6 +176,7 @@ fn start() -> crossterm::Result<()> {
                                 contents[index] = a;
                                 contents[index-1] = b;
                             }
+                            if index < index_limit {index += 1;}
                             file_manipulation::write_to_file(&contents);
                         }
                         KeyEvent {
@@ -155,6 +189,7 @@ fn start() -> crossterm::Result<()> {
                                 contents[index-1] = a;
                                 contents[index-2] = b;
                             }
+                            if index > 1 {index -=1 ;}
                             file_manipulation::write_to_file(&contents);
                         },
                         _ => {/*default*/}
