@@ -20,6 +20,27 @@ impl Drop for CleanUp {
     }
 }
 
+const HELP_SCREEN : &str = " \r
+    # TASKmd \r
+    A light weight project's todos manager \r
+    \r
+    Keys :  \r
+    ┌---------┬------------------------------┬------------┐ \r
+    |   Key   |         Description          |    alias   | \r
+    ├---------┼------------------------------┼------------┤ \r
+    | Up/Down | Moves the cursor up or down  | Left/Right | \r
+    | (Shift) |                              | (Shift)    | \r
+    | Up/Down | Moves a Task up or down      | Left/Right | \r
+    |    A    | Adds a Task                  |      -     | \r
+    |    E    | Edits an Existing task       |      -     | \r
+    |    T    | Toggles selected task        |      -     | \r
+    |    D    | Deletes a task               |      -     | \r
+    | Ctrl + Q| Exits program                |      -     | \r
+    |    H    | Displays This message        |      -     | \r
+    └---------┴------------------------------┴------------┘ \r
+    \r
+    \r";
+
 fn main() -> crossterm::Result<()> {
     execute!(stdout(), EnterAlternateScreen)?;
     start()?;
@@ -122,7 +143,12 @@ fn start() -> crossterm::Result<()> {
                             file_manipulation::write_to_file(&contents);
                             ops::print_item(index, &contents)
                         }
-
+                        KeyEvent {
+                            code: KeyCode::Char('h'), modifiers: event::KeyModifiers::NONE
+                        } => {
+                            tools::clear_screen_alternate();
+                            println!("{}", HELP_SCREEN);
+                        }
 
                         //navigation
                         //dont mess with

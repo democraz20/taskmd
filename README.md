@@ -13,7 +13,8 @@ ___
 
 |   Key   |         Description          |    alias   |
 | :-----: | :--------------------------: | :--------: |
-| Up/Down | Moves the cursor up and down | Left\Right |
+| Up/Down | Moves the cursor up or down | Left\Right |
+| (Shift) Up/Down | Moves a task up or down | (Shift) Left/Right|
 |    A    | Adds a Task                  |      -     |
 |    E    | Edits an Existing task       |      -     |
 |    T    | Toggles selected task        |      -     |
